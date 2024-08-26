@@ -5,7 +5,7 @@ const Footer = () => {
         <>
             <footer className='mt-[50px]'>
                 <div className="container">
-                    <div className="border-t border-[#EBEBEB] flex items-center justify-between py-10">
+                    <div className="border-t border-[#EBEBEB] flex flex-col md:flex-row gap-8 items-center justify-between py-10">
                         <h4 className='tracking-tighter text-secondTextColor '>© 1403 مــوتــا. طراحی توسط وحید کریمی.</h4>
                         <div className="flex items-center justify-between gap-5">
                             <a href="#">
@@ -46,7 +46,7 @@ const Footer = () => {
                 </div>
             </footer>
         </>
-    )``
+    )
 }
 
 export default Footer
