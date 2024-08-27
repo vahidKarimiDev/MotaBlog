@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const BtnDarkMode = () => {
+
     const darkModeHandler = () => {
+        const getThemeInLocal = localStorage.getItem('theme');
         document.documentElement.classList.toggle('dark');
+        if (getThemeInLocal !== "dark") {
+            localStorage.setItem('theme', "dark");
+        } else {
+            localStorage.setItem('theme', "light");
+        }
     }
+
+    useEffect(() => {
+        const getThemeInLocal = localStorage.getItem('theme');
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add(getThemeInLocal)
+        }
+    })
 
     return (
         <>

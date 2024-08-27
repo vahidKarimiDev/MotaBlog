@@ -1,79 +1,93 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom';
 import Cover from '../Cover/Cover'
 
 const Header = () => {
     const [isShowSidBar, setIsShowSideBar] = useState(false);
+    const [isShowMenu, setIsShowMenu] = useState(false)
 
     const showSidBarHandler = () => setIsShowSideBar(true);
 
     const closeSidBarHandler = () => setIsShowSideBar(false);
 
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            if (scrollTop >= 200) {
+                setIsShowMenu(true)
+            } else {
+                setIsShowMenu(false)
+            }
+        })
+
+    })
+
     return (
         <header>
-            <nav className='py-10'>
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center justify-center gap-10">
-                        <img src="/logo_mota.png" className='w-[110px] h-[38px]' alt="Logo Mota ..." />
-                        <ul className='hidden md:flex items-center justify-start gap-10 transition text-secondTextColor child-hover:text-zinc-700 tracking-tighter dark:child:text-white'>
-                            <li className='active'>
-                                <a href="#">صفحه اصلی</a>
-                            </li>
-                            <li className=''>
-                                <a href="#">لایف استایل</a>
-                            </li>
-                            <li>
-                                <a href="#">فرهنگی</a>
-                            </li>
-                            <li>
-                                <a href="#">ویژگی ها</a>
-                            </li>
-                            <li>
-                                <a href="#">تماس با ما</a>
-                            </li>
-                        </ul>
+            <nav className={`block py-10 bg-white dark:bg-backGroundDark w-full ${isShowMenu && "fixed top-0 border-b border-b-[#EBEBEB] dark:border-gray-600 py-6"} transition`}>
+                <div className="container">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-center gap-10">
+                            <img src="/logo_mota.png" className='w-[110px] h-[38px]' alt="Logo Mota ..." />
+                            <ul className='hidden md:flex items-center justify-start gap-10 transition text-secondTextColor child-hover:text-zinc-700 tracking-tighter dark:child:text-white'>
+                                <NavLink to={'/'} className={({ isActive }) => isActive && "active"}>
+                                    <a href="#">صفحه اصلی</a>
+                                </NavLink>
+                                <li className=''>
+                                    <a href="#">لایف استایل</a>
+                                </li>
+                                <li>
+                                    <a href="#">فرهنگی</a>
+                                </li>
+                                <li>
+                                    <a href="#">ویژگی ها</a>
+                                </li>
+                                <NavLink to={'/contact'} className={({ isActive }) => isActive && "active"}>
+                                    <a href="#">تماس با ما</a>
+                                </NavLink>
+                            </ul>
+                        </div>
+                        <div className="flex items-center gap-4 md:gap-10">
+                            <div className="hidden lg:flex items-center gap-5">
+                                <a href="#">
+                                    <svg className='w-4 h-4 '>
+                                        <use xlinkHref='#face-book'></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <svg className='w-4 h-4 '>
+                                        <use xlinkHref='#twitter'></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <svg className='w-4 h-4 '>
+                                        <use xlinkHref='#instagram'></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <svg className='w-4 h-4 '>
+                                        <use xlinkHref='#tiktok'></use>
+                                    </svg>
+                                </a>
+                                <a href="#">
+                                    <svg className='w-4 h-4 '>
+                                        <use xlinkHref='#youtube'></use>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div className="backGround-primary rounded-full p-2.5">
+                                <svg className='w-5 h-5'>
+                                    <use xlinkHref='#search'></use>
+                                </svg>
+                            </div>
+                            <div className="backGround-primary rounded-full p-2.5 block md:hidden" onClick={showSidBarHandler}>
+                                <svg className='w-5 h-5'>
+                                    <use xlinkHref='#bars-3'></use>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex items-center gap-4 md:gap-10">
-                        <div className="hidden lg:flex items-center gap-5">
-                            <a href="#">
-                                <svg className='w-4 h-4 '>
-                                    <use xlinkHref='#face-book'></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg className='w-4 h-4 '>
-                                    <use xlinkHref='#twitter'></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg className='w-4 h-4 '>
-                                    <use xlinkHref='#instagram'></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg className='w-4 h-4 '>
-                                    <use xlinkHref='#tiktok'></use>
-                                </svg>
-                            </a>
-                            <a href="#">
-                                <svg className='w-4 h-4 '>
-                                    <use xlinkHref='#youtube'></use>
-                                </svg>
-                            </a>
-                        </div>
-                        <div className="backGround-primary rounded-full p-2.5">
-                            <svg className='w-5 h-5'>
-                                <use xlinkHref='#search'></use>
-                            </svg>
-                        </div>
-                        <div className="backGround-primary rounded-full p-2.5 block md:hidden" onClick={showSidBarHandler}>
-                            <svg className='w-5 h-5'>
-                                <use xlinkHref='#bars-3'></use>
-                            </svg>
-                        </div>
-                    </div>
-
-
-
                 </div>
             </nav>
             {/* Side Bar Mobile */}

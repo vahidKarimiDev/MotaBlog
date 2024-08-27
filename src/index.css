@@ -57,6 +57,7 @@
     transition: all 0.2s ease-in-out;
     cursor: pointer;
   }
+  
   .backGround-primary:hover {
     background-size: auto 100%;
   }
@@ -114,7 +115,7 @@
     align-items: center;
     width: 28px;
     height: 52px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05) inset;
     border-radius: 100px;
     position: relative;
@@ -163,5 +164,17 @@
   }
   #dark-mode:checked + .labelDarkMode .wrapper-icon .moon {
     opacity: 1;
+  }
+
+  /* Custom Scroll */
+  .customScroll {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 3px;
+    width: 0%;
+    background: #ffa387;
+    background: linear-gradient(to top, #ffa387 0%, #fe4f70 51%, #ffa387 100%);
+    transition: all .02s ease-in-out;
   }
 }
