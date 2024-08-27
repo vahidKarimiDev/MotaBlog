@@ -57,7 +57,7 @@
     transition: all 0.2s ease-in-out;
     cursor: pointer;
   }
-  
+
   .backGround-primary:hover {
     background-size: auto 100%;
   }
@@ -175,6 +175,23 @@
     width: 0%;
     background: #ffa387;
     background: linear-gradient(to top, #ffa387 0%, #fe4f70 51%, #ffa387 100%);
-    transition: all .02s ease-in-out;
+    transition: all 0.02s ease-in-out;
+  }
+
+  .input {
+    width: 100%;
+    padding: 8px 24px;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    border: 1px solid #ebebeb;
+    margin-bottom: 30px;
+  }
+  *.dark .input {
+    @apply bg-[#ffffff0d] border-gray-600 text-white;
+  }
+
+  .input:focus {
+    border: 1px solid #fe4f70;
   }
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import BoxInfo from './Components/BoxInfo/BoxInfo'
+import SendMessage from './Components/SendMessage/SendMessage'
 
 const Contcat = () => {
     return (
@@ -14,6 +15,7 @@ const Contcat = () => {
             </div>
             <div className="container">
                 <BoxInfo />
+                <SendMessage />
             </div>
         </>
     )

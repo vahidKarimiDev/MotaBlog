@@ -3,7 +3,7 @@ import React from 'react'
 const BoxInfo = () => {
     return (
         <>
-            <div className="grid grid-cols-3 gap-4 mt-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-20">
                 <div className="flex items-center justify-start gap-6 border border-[#EBEBEB] dark:border-gray-600 rounded-xl p-6">
                     <div className="active rounded-xl p-0 w-12 h-12 flex items-center justify-center ">
                         <svg className='w-7 h-7'>

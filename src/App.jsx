@@ -2,6 +2,7 @@ import React from 'react';
 import { useRoutes } from 'react-router-dom';
 import routers from './router';
 import Header from './Components/Header/Header'
+import Footer from './Components/Footer/Footer';
 
 const App = () => {
     const route = useRoutes(routers);
@@ -10,6 +11,7 @@ const App = () => {
         <>
             <Header />
             {route}
+            <Footer />
         </>
     )
 }
