@@ -4,6 +4,7 @@ export default {
     './src/**/*.{js,jsx}',
     "./index.html"
   ],
+  darkMode: "class",
   theme: {
     extend: {
       container: {
@@ -30,7 +31,8 @@ export default {
       colors: {
         secondColor: "#203656",
         secondTextColor: "#79889e",
-        redPrimaryColor: "#fe4f70"
+        redPrimaryColor: "#fe4f70",
+        backGroundDark: "#142030"
       }
     },
   },

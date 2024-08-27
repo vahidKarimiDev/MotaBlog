@@ -3,6 +3,7 @@ import Header from '../../Components/Header/Header'
 import BoxBlog from '../../Components/BoxBlog/BoxBlog'
 import ListBlog from './Components/ListBlog'
 import Footer from '../../Components/Footer/Footer'
+import BtnDarkMode from '../../Components/BtnDarkMode/BtnDarkMode'
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
                 <Header />
                 <ListBlog />
                 <Footer />
+                <BtnDarkMode />
             </div>
         </>
     )

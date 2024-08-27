@@ -34,7 +34,7 @@ const Footer = () => {
                                 </svg>
                             </a>
                         </div>
-                        <button className='flex items-center gap-2 px-6 py-1.5 border border-[#EBEBEB] rounded-full text-secondTextColor hover:text-redPrimaryColor hover:border-redPrimaryColor transition'>
+                        <button className='flex items-center gap-2 px-6 py-1.5 tracking-tighter border border-[#EBEBEB] rounded-full text-secondTextColor hover:text-redPrimaryColor hover:border-redPrimaryColor transition'>
                             <svg className='w-5 h-5 '>
                                 <use xlinkHref='#arrow-up'></use>
                             </svg>

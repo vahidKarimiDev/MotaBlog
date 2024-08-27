@@ -10,9 +10,9 @@ const BoxBlog = () => {
                 <div className="p-[30px]">
                     <div className="flex items-center justify-start gap-3">
                         <img src="/images/avatar.png" className='w-9 h-9 object-cover' alt="" />
-                        <p className='text-secondTextColor text-sm tracking-tighter hover:text-redPrimaryColor transition'>وحید کریمی</p>
+                        <p className='text-secondTextColor text-xs tracking-tighter hover:text-redPrimaryColor transition'>وحید کریمی</p>
                         <span className='block w-[3px] h-[3px] bg-redPrimaryColor rounded-full'></span>
-                        <p className='text-sm tracking-tighter text-secondTextColor'>01 آبان 1403</p>
+                        <p className='text-xs tracking-tighter text-secondTextColor'>01 آبان 1403</p>
                     </div>
                     <div className="mt-4">
                         <h2 className='font-DanaMedium hover:text-redPrimaryColor cursor-pointer transition text-xl line-clamp-2 tracking-tighter text-secondColor h-[56px]'>۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید</h2>
