@@ -14,7 +14,7 @@ const Header = () => {
                 <div className="flex items-center justify-between">
                     <div className="flex items-center justify-center gap-10">
                         <img src="/logo_mota.png" className='w-[110px] h-[38px]' alt="Logo Mota ..." />
-                        <ul className='hidden md:flex items-center justify-start gap-10 transition text-secondTextColor child-hover:text-zinc-700 tracking-tighter'>
+                        <ul className='hidden md:flex items-center justify-start gap-10 transition text-secondTextColor child-hover:text-zinc-700 tracking-tighter dark:child:text-white'>
                             <li className='active'>
                                 <a href="#">صفحه اصلی</a>
                             </li>
@@ -35,27 +35,27 @@ const Header = () => {
                     <div className="flex items-center gap-4 md:gap-10">
                         <div className="hidden lg:flex items-center gap-5">
                             <a href="#">
-                                <svg className='w-4 h-4 fill-red-50'>
+                                <svg className='w-4 h-4 '>
                                     <use xlinkHref='#face-book'></use>
                                 </svg>
                             </a>
                             <a href="#">
-                                <svg className='w-4 h-4 fill-red-50'>
+                                <svg className='w-4 h-4 '>
                                     <use xlinkHref='#twitter'></use>
                                 </svg>
                             </a>
                             <a href="#">
-                                <svg className='w-4 h-4 fill-red-50'>
+                                <svg className='w-4 h-4 '>
                                     <use xlinkHref='#instagram'></use>
                                 </svg>
                             </a>
                             <a href="#">
-                                <svg className='w-4 h-4 fill-red-50'>
+                                <svg className='w-4 h-4 '>
                                     <use xlinkHref='#tiktok'></use>
                                 </svg>
                             </a>
                             <a href="#">
-                                <svg className='w-4 h-4 fill-red-50'>
+                                <svg className='w-4 h-4 '>
                                     <use xlinkHref='#youtube'></use>
                                 </svg>
                             </a>
@@ -106,17 +106,17 @@ const Header = () => {
 
                     <div className="flex items-center justify-between gap-5 mt-20">
                         <a href="#">
-                            <svg className='w-4 h-4 fill-red-50'>
+                            <svg className='w-4 h-4 '>
                                 <use xlinkHref='#face-book'></use>
                             </svg>
                         </a>
                         <a href="#">
-                            <svg className='w-4 h-4 fill-red-50'>
+                            <svg className='w-4 h-4 '>
                                 <use xlinkHref='#twitter'></use>
                             </svg>
                         </a>
                         <a href="#">
-                            <svg className='w-4 h-4 fill-red-50'>
+                            <svg className='w-4 h-4 '>
                                 <use xlinkHref='#instagram'></use>
                             </svg>
                         </a>

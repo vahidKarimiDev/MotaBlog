@@ -5,7 +5,7 @@ const Footer = () => {
         <>
             <footer className='mt-[50px]'>
                 <div className="container">
-                    <div className="border-t border-[#EBEBEB] flex flex-col md:flex-row gap-8 items-center justify-between py-10">
+                    <div className="border-t border-[#EBEBEB] dark:border-gray-600 flex flex-col md:flex-row gap-8 items-center justify-between py-10">
                         <h4 className='tracking-tighter text-secondTextColor '>© 1403 مــوتــا. طراحی توسط وحید کریمی.</h4>
                         <div className="flex items-center justify-between gap-5">
                             <a href="#">
@@ -34,7 +34,7 @@ const Footer = () => {
                                 </svg>
                             </a>
                         </div>
-                        <button className='flex items-center gap-2 px-6 py-1.5 tracking-tighter border border-[#EBEBEB] rounded-full text-secondTextColor hover:text-redPrimaryColor hover:border-redPrimaryColor transition'>
+                        <button className='flex items-center gap-2 px-6 py-1.5 tracking-tighter border border-[#EBEBEB] dark:border-gray-600 rounded-full text-secondTextColor hover:text-redPrimaryColor dark:hover:border-redPrimaryColor hover:border-redPrimaryColor transition'>
                             <svg className='w-5 h-5 '>
                                 <use xlinkHref='#arrow-up'></use>
                             </svg>

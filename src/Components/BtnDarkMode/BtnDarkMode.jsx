@@ -1,9 +1,8 @@
 import React from 'react'
 
 const BtnDarkMode = () => {
-
     const darkModeHandler = () => {
-        document.documentElement.classList.toggle('dark')
+        document.documentElement.classList.toggle('dark');
     }
 
     return (

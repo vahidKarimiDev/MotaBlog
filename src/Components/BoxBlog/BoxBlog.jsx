@@ -3,7 +3,7 @@ import React from 'react'
 const BoxBlog = () => {
     return (
         <>
-            <div className="rounded-xl overflow-hidden h-[560px] border border-[#EBEBEB]">
+            <div className="rounded-xl overflow-hidden h-[560px] border border-[#EBEBEB] dark:border-gray-600">
                 <div className="w-full h-[235px] overflow-hidden">
                     <img src="/images/image_post.jpg" className='w-full h-[235px] object-cover hover:scale-105 transition duration-300 cursor-pointer' alt="Photo Post ...." />
                 </div>
@@ -15,10 +15,10 @@ const BoxBlog = () => {
                         <p className='text-xs tracking-tighter text-secondTextColor'>01 آبان 1403</p>
                     </div>
                     <div className="mt-4">
-                        <h2 className='font-DanaMedium hover:text-redPrimaryColor cursor-pointer transition text-xl line-clamp-2 tracking-tighter text-secondColor h-[56px]'>۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید</h2>
+                        <h2 className='font-DanaMedium hover:text-redPrimaryColor cursor-pointer transition text-xl line-clamp-2 tracking-tighter text-secondColor h-[56px] dark:text-white dark:hover:text-redPrimaryColor'>۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید</h2>
                         <p className='tracking-tighter line-clamp-3 text-secondTextColor mt-4 h-[72px]'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و…</p>
                     </div>
-                    <div className="mt-[30px] border-t border-[#EBEBEB] flex items-center justify-between">
+                    <div className="mt-[30px] border-t border-[#EBEBEB] dark:border-gray-600 flex items-center justify-between">
                         <svg className='w-5 h-5 mt-5 text-secondTextColor cursor-pointer'>
                             <use xlinkHref='#share'></use>
                         </svg>

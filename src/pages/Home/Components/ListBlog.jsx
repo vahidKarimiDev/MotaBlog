@@ -11,7 +11,7 @@ const ListBlog = () => {
                 <BoxBlog />
             </div>
             <div className="w-full  flex items-center justify-center my-12">
-                <button className='px-9 py-2 tracking-tighter border border-[#EBEBEB] rounded-full text-secondTextColor hover:text-redPrimaryColor hover:border-redPrimaryColor transition'>مشاهده بیشتر</button>
+                <button className='px-9 py-2 tracking-tighter border border-[#EBEBEB] dark:border-gray-600 dark:hover:border-redPrimaryColor rounded-full text-secondTextColor hover:text-redPrimaryColor hover:border-redPrimaryColor transition'>مشاهده بیشتر</button>
             </div>
         </>
     )
