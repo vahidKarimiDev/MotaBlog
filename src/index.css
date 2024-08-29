@@ -207,4 +207,7 @@
     border-radius: 5px;
     background: linear-gradient(to right, #ebebeb, white);
   }
+  *.dark .customBorder::before {
+    background: linear-gradient(to right, #4b5563, #142030);
+  }
 }

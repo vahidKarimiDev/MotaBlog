@@ -56,7 +56,7 @@ const Blog = () => {
                             </SwiperSlide>
                             <NextAndPreveBtn />
                         </Swiper>
-                        <div className="text-secondTextColor dark:text-white/90 flex flex-col gap-4 mt-8 font-medium border-b border-[#EBEBEB] pb-10 dark:border-gray-600">
+                        <div className="text-secondTextColor dark:text-white/90 flex flex-col gap-4 mt-8 font-medium border-b border-[#EBEBEB] dark:border-gray-600 pb-10 dark:border-gray-600">
                             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی <span className='text-redPrimaryColor'>تکنولوژی</span> مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
                             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
                             <img src="/images/img-3.jpg" className='w-full h-[460px] rounded-xl object-cover' alt="Photo Blog ..." />
@@ -131,8 +131,8 @@ const Blog = () => {
                         </div>
                     </div>
                     <div className="w-full lg:w-[35%] flex flex-col gap-10">
-                        <div className="border border-[#EBEBEB] rounded-xl py-[35px] px-[30px]">
-                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor'>نوشته های محبوب</p>
+                        <div className="border border-[#EBEBEB] dark:border-gray-600 rounded-xl py-[35px] px-[30px]">
+                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor dark:text-white'>نوشته های محبوب</p>
                             <div className="flex items-center justify-center w-full">
                                 <svg width="33" height="6" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
@@ -145,41 +145,41 @@ const Blog = () => {
                                 </svg>
                             </div>
                             <div className="mt-8 flex flex-col items-start justify-start child:py-4">
-                                <div className="customBorder relative flex items-center justify-start gap-3">
+                                <div className="customBorder relative flex items-center justify-start gap-3 w-full">
                                     <div className="relative">
                                         <img src="/images/img-4.jpg" className='w-[60px] h-[60px] object-cover rounded-full' alt="Blog Photo ..." />
                                         <span className='absolute -top-2 right-0 border-2 shadow-inner shadow-red-600 border-white rounded-full w-6 h-6 bg-redPrimaryColor flex items-center justify-center text-sm text-white'>1</span>
                                     </div>
                                     <div className="">
-                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer'>۳ راه آسان برای سریعتر کردن آیفون</h4>
+                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer dark:text-white '>۳ راه آسان برای سریعتر کردن آیفون</h4>
                                         <span className='block text-secondTextColor text-sm tracking-tighter mt-1'>28 مرداد 1401</span>
                                     </div>
                                 </div>
-                                <div className="customBorder relative flex items-center justify-start gap-3">
+                                <div className="customBorder relative flex items-center justify-start gap-3 w-full">
                                     <div className="relative">
                                         <img src="/images/img-4.jpg" className='w-[60px] h-[60px] object-cover rounded-full' alt="Blog Photo ..." />
                                         <span className='absolute -top-2 right-0 border-2 shadow-inner shadow-red-600 border-white rounded-full w-6 h-6 bg-redPrimaryColor flex items-center justify-center text-sm text-white'>1</span>
                                     </div>
                                     <div className="">
-                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer'>۳ راه آسان برای سریعتر کردن آیفون</h4>
+                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer dark:text-white'>۳ راه آسان برای سریعتر کردن آیفون</h4>
                                         <span className='block text-secondTextColor text-sm tracking-tighter mt-1'>28 مرداد 1401</span>
                                     </div>
                                 </div>
-                                <div className="customBorder relative flex items-center justify-start gap-3">
+                                <div className="customBorder relative flex items-center justify-start gap-3 w-full">
                                     <div className="relative">
                                         <img src="/images/img-4.jpg" className='w-[60px] h-[60px] object-cover rounded-full' alt="Blog Photo ..." />
                                         <span className='absolute -top-2 right-0 border-2 shadow-inner shadow-red-600 border-white rounded-full w-6 h-6 bg-redPrimaryColor flex items-center justify-center text-sm text-white'>1</span>
                                     </div>
                                     <div className="">
-                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer'>۳ راه آسان برای سریعتر کردن آیفون</h4>
+                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer dark:text-white'>۳ راه آسان برای سریعتر کردن آیفون</h4>
                                         <span className='block text-secondTextColor text-sm tracking-tighter mt-1'>28 مرداد 1401</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="border border-[#EBEBEB] rounded-xl py-[35px] px-[30px] flex flex-col items-center">
-                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor'>خبرنامه</p>
+                        <div className="border border-[#EBEBEB] dark:border-gray-600 rounded-xl py-[35px] px-[30px] flex flex-col items-center">
+                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor dark:text-white'>خبرنامه</p>
                             <div className="flex items-center justify-center w-full">
                                 <svg width="33" height="6" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
@@ -198,7 +198,7 @@ const Blog = () => {
                                             <svg className='w-5 h-5 rotate-180 text-redPrimaryColor'>
                                                 <use xlinkHref='#arrow-left'></use>
                                             </svg>
-                                            <p className='font-DanaMedium text-secondColor cursor-pointer hover:text-redPrimaryColor transition'>الهام بخش</p>
+                                            <p className='font-DanaMedium text-secondColor cursor-pointer hover:text-redPrimaryColor transition dark:text-white'>الهام بخش</p>
                                         </div>
                                         <span className='text-secondTextColor '>(2)</span>
                                     </li>
@@ -207,7 +207,7 @@ const Blog = () => {
                                             <svg className='w-5 h-5 rotate-180 text-redPrimaryColor'>
                                                 <use xlinkHref='#arrow-left'></use>
                                             </svg>
-                                            <p className='font-DanaMedium text-secondColor cursor-pointer hover:text-redPrimaryColor transition'>الهام بخش</p>
+                                            <p className='font-DanaMedium text-secondColor cursor-pointer hover:text-redPrimaryColor transition dark:text-white'>الهام بخش</p>
                                         </div>
                                         <span className='text-secondTextColor '>(2)</span>
                                     </li>
@@ -216,7 +216,7 @@ const Blog = () => {
                                             <svg className='w-5 h-5 rotate-180 text-redPrimaryColor'>
                                                 <use xlinkHref='#arrow-left'></use>
                                             </svg>
-                                            <p className='font-DanaMedium text-secondColor cursor-pointer hover:text-redPrimaryColor transition'>الهام بخش</p>
+                                            <p className='font-DanaMedium text-secondColor cursor-pointer hover:text-redPrimaryColor transition dark:text-white'>الهام بخش</p>
                                         </div>
                                         <span className='text-secondTextColor '>(2)</span>
                                     </li>
@@ -225,7 +225,7 @@ const Blog = () => {
                                             <svg className='w-5 h-5 rotate-180 text-redPrimaryColor'>
                                                 <use xlinkHref='#arrow-left'></use>
                                             </svg>
-                                            <p className='font-DanaMedium text-secondColor cursor-pointer hover:text-redPrimaryColor transition'>الهام بخش</p>
+                                            <p className='font-DanaMedium text-secondColor cursor-pointer hover:text-redPrimaryColor transition dark:text-white'>الهام بخش</p>
                                         </div>
                                         <span className='text-secondTextColor '>(2)</span>
                                     </li>
@@ -234,8 +234,8 @@ const Blog = () => {
 
                         </div>
 
-                        <div className="border border-[#EBEBEB] rounded-xl py-[35px] px-[30px] flex flex-col items-center">
-                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor'>خبرنامه</p>
+                        <div className="border border-[#EBEBEB] dark:border-gray-600 rounded-xl py-[35px] px-[30px] flex flex-col items-center">
+                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor dark:text-white'>خبرنامه</p>
                             <div className="flex items-center justify-center w-full">
                                 <svg width="33" height="6" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
@@ -247,15 +247,15 @@ const Blog = () => {
                                     <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" stroke-width="2" fill="none"></path>
                                 </svg>
                             </div>
-                            <div className="text-secondColor font-DanaMedium mt-6 text-[17px]">به 70000 مشترک بپیوندید!</div>
+                            <div className="text-secondColor font-DanaMedium mt-6 text-[17px] dark:text-white">به 70000 مشترک بپیوندید!</div>
                             <input type="text" placeholder='آدرس ایمیل ...' className='input py-2 text-sm my-2 text-center' />
                             <button className='backGround-primary w-full mt-1 rounded-full py-2 font-DanaMedium'>عضویت</button>
                             <span className='text-center text-sm text-secondTextColor mt-5'>با ثبت نام، با سیاست حفظ حریم <span className='text-redPrimaryColor'>خصوصی ما</span> موافقت می کنید</span>
 
                         </div>
 
-                        <div className=" border border-[#EBEBEB] rounded-xl py-[35px] px-[30px] flex flex-col items-center">
-                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor'>جشنواره ها</p>
+                        <div className=" border border-[#EBEBEB] dark:border-gray-600 rounded-xl py-[35px] px-[30px] flex flex-col items-center">
+                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor dark:text-white'>جشنواره ها</p>
                             <div className="flex items-center justify-center w-full">
                                 <svg width="33" height="6" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
@@ -285,7 +285,7 @@ const Blog = () => {
                                                 <img src="/images/img-3.jpg" className='w-full h-[200px] object-cover rounded-xl' alt="Events Blog ..." />
                                                 <span className='absolute top-4 right-5 active py-1 px-3.5 text-[13px] tracking-tight'>الهام بخش</span>
                                             </div>
-                                            <h3 className='text-secondColor text-lg mt-4 line-clamp-2 h-[56px] font-DanaBold cursor-pointer hover:text-redPrimaryColor transition'>در حال حاضر چه کاری می توانید در مورد مد انجام دهید</h3>
+                                            <h3 className='text-secondColor text-lg mt-4 line-clamp-2 h-[56px] font-DanaBold cursor-pointer hover:text-redPrimaryColor transition dark:text-white'>در حال حاضر چه کاری می توانید در مورد مد انجام دهید</h3>
                                             <div className="flex items-center justify-start gap-4 mt-3">
                                                 <p className='text-secondTextColor text-sm  tracking-tighter cursor-pointer hover:text-redPrimaryColor transition'>وحید کریمی</p>
                                                 <span className='block w-[3px] h-[3px] bg-redPrimaryColor rounded-full'></span>
@@ -299,7 +299,7 @@ const Blog = () => {
                                                 <img src="/images/img-3.jpg" className='w-full h-[200px] object-cover rounded-xl' alt="Events Blog ..." />
                                                 <span className='absolute top-4 right-5 active py-1 px-3.5 text-[13px] tracking-tight'>الهام بخش</span>
                                             </div>
-                                            <h3 className='text-secondColor text-lg mt-4 line-clamp-2 h-[56px] font-DanaBold cursor-pointer hover:text-redPrimaryColor transition'>در حال حاضر چه کاری می توانید در مورد مد انجام دهید</h3>
+                                            <h3 className='text-secondColor text-lg mt-4 line-clamp-2 h-[56px] font-DanaBold cursor-pointer hover:text-redPrimaryColor transition dark:text-white'>در حال حاضر چه کاری می توانید در مورد مد انجام دهید</h3>
                                             <div className="flex items-center justify-start gap-4 mt-3">
                                                 <p className='text-secondTextColor text-sm  tracking-tighter cursor-pointer hover:text-redPrimaryColor transition'>وحید کریمی</p>
                                                 <span className='block w-[3px] h-[3px] bg-redPrimaryColor rounded-full'></span>
