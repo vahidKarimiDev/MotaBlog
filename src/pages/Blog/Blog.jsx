@@ -19,8 +19,8 @@ const Blog = () => {
                     <span>/</span>
                     ۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید
                 </p>
-                <div className="flex items-start justify-between gap-6">
-                    <div className="w-[65%] rounded-xl">
+                <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
+                    <div className="w-full lg:w-[65%] rounded-xl">
                         <h1 className='font-MorabbaBold text-3xl font-bold text-secondColor dark:text-white '>۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید</h1>
                         <div className="flex items-center justify-start gap-4 mt-6 ">
                             <img src="/images/avatar.png" className='w-8 h-8 object-cover rounded-full' alt="Authre Blog Image ..." />
@@ -95,12 +95,12 @@ const Blog = () => {
                             </div>
                         </div>
 
-                        <div className="bg-[#F1F8FF] dark:bg-[#ffffff0d] w-full p-10 flex items-center justify-start gap-6 rounded-xl mt-6">
+                        <div className="bg-[#F1F8FF] dark:bg-[#ffffff0d] w-full p-10 flex flex-col sm:flex-row items-center justify-start gap-6 rounded-xl mt-6">
                             <img src="/images/avatar.png" className='w-[100px] h-[100px] rounded-full' alt="Auther Blog..." />
-                            <div className="">
+                            <div className="text-center sm:text-right">
                                 <h4 className='text-lg font-DanaBold tracking-tighter text-secondColor dark:text-white pb-3'>وحید کریمی</h4>
                                 <p className='text-base text-secondTextColor'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.</p>
-                                <div className="flex items-start justify-start gap-5 mt-4">
+                                <div className="flex items-start justify-center sm:justify-start gap-5 mt-4">
                                     <a href="#">
                                         <svg className='w-4 h-4 '>
                                             <use xlinkHref='#face-book'></use>
@@ -130,7 +130,7 @@ const Blog = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-[35%] flex flex-col gap-10">
+                    <div className="w-full lg:w-[35%] flex flex-col gap-10">
                         <div className="border border-[#EBEBEB] rounded-xl py-[35px] px-[30px]">
                             <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor'>نوشته های محبوب</p>
                             <div className="flex items-center justify-center w-full">
