@@ -29,7 +29,7 @@ const CustomScroll = () => {
 
     return (
         <>
-            <div ref={customScrollElm} className="customScroll"></div>
+            <div ref={customScrollElm} className="customScroll z-50"></div>
         </>
     )
 }
