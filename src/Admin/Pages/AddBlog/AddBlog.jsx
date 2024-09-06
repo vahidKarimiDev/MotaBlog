@@ -23,14 +23,7 @@ const AddBlog = () => {
 
 
                 <div className="">
-                    <CKEditor
-                        editor={ClassicEditor}
-                            config={{
-                                language: "fa",
-                                
-                            }}
-                        
-                    />
+                   
                 </div>
             </BoxContent>
         </>
