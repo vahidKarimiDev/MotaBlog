@@ -12,7 +12,7 @@ const Blog = () => {
     return (
         <>
             <div className="container mt-14">
-                <p className='flex items-center justify-start gap-2 text-secondTextColor text-sm tracking-tight pb-3'>
+                <p className='flex items-center justify-start gap-2 text-secondTextColor text-xs sm:text-sm tracking-tight pb-3'>
                     مــوتــا
                     <span>/</span>
                     پرطرفدار
@@ -21,8 +21,8 @@ const Blog = () => {
                 </p>
                 <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
                     <div className="w-full lg:w-[65%] rounded-xl">
-                        <h1 className='font-MorabbaBold text-3xl font-bold text-secondColor dark:text-white '>۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید</h1>
-                        <div className="flex items-center justify-start gap-4 mt-6 ">
+                        <h1 className='font-MorabbaBold text-2xl sm:text-3xl font-bold text-secondColor dark:text-white '>۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید</h1>
+                        <div className="flex items-center justify-start gap-3 sm:gap-4 mt-6 ">
                             <img src="/images/avatar.png" className='w-8 h-8 object-cover rounded-full' alt="Authre Blog Image ..." />
                             <p className='text-secondTextColor text-sm  tracking-tighter cursor-pointer hover:text-redPrimaryColor transition'>وحید کریمی</p>
                             <span className='block w-[3px] h-[3px] bg-redPrimaryColor rounded-full'></span>

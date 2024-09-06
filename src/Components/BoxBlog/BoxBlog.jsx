@@ -4,8 +4,16 @@ const BoxBlog = () => {
     return (
         <>
             <div className="rounded-xl overflow-hidden h-[560px] border border-[#EBEBEB] dark:border-gray-600">
-                <div className="w-full h-[235px] overflow-hidden">
-                    <img src="/images/image_post.jpg" className='w-full h-[235px] object-cover hover:scale-105 transition duration-300 cursor-pointer' alt="Photo Post ...." />
+                <div className="w-full relative">
+                    <div className="h-[235px] overflow-hidden">
+                        <img src="/images/image_post.jpg" className='w-full h-[235px] overflow-hidden object-cover hover:scale-105 transition duration-300 cursor-pointer' alt="Photo Post ...." />
+                    </div>
+                    <span className='backGround-primary rounded-full absolute top-4 right-4 text-sm py-1 px-2.5'>الهام بخش</span>
+                    <div className="active flex items-center justify-center w-14 p-0 h-14 absolute left-4 -bottom-4 z-10">
+                        <svg className='w-7 h-7 text-white'>
+                            <use xlinkHref='#photo'></use>
+                        </svg>
+                    </div>
                 </div>
                 <div className="p-[30px]">
                     <div className="flex items-center justify-start gap-3">
