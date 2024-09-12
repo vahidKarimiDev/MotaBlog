@@ -141,7 +141,7 @@ const Blog = () => {
                                             <stop offset="100%" stop-color="#FFA387"></stop>
                                         </linearGradient>
                                     </defs>
-                                    <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" stroke-width="2" fill="none"></path>
+                                    <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" strokeWidth="2" fill="none"></path>
                                 </svg>
                             </div>
                             <div className="mt-8 flex flex-col items-start justify-start child:py-4">
@@ -188,7 +188,7 @@ const Blog = () => {
                                             <stop offset="100%" stop-color="#FFA387"></stop>
                                         </linearGradient>
                                     </defs>
-                                    <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" stroke-width="2" fill="none"></path>
+                                    <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" strokeWidth="2" fill="none"></path>
                                 </svg>
                             </div>
                             <div className="w-full mt-8">
@@ -244,7 +244,7 @@ const Blog = () => {
                                             <stop offset="100%" stop-color="#FFA387"></stop>
                                         </linearGradient>
                                     </defs>
-                                    <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" stroke-width="2" fill="none"></path>
+                                    <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" strokeWidth="2" fill="none"></path>
                                 </svg>
                             </div>
                             <div className="text-secondColor font-DanaMedium mt-6 text-[17px] dark:text-white">به 70000 مشترک بپیوندید!</div>
@@ -264,7 +264,7 @@ const Blog = () => {
                                             <stop offset="100%" stop-color="#FFA387"></stop>
                                         </linearGradient>
                                     </defs>
-                                    <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" stroke-width="2" fill="none"></path>
+                                    <path d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5" stroke="url(#gradient)" strokeWidth="2" fill="none"></path>
                                 </svg>
                             </div>
                             <div className="w-full">
