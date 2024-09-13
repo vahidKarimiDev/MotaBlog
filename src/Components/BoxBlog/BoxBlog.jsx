@@ -1,12 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { Swiper, SwiperSlide } from "swiper/react"
+import DOMPurify from 'dompurify'
 
-const BoxBlog = () => {
+const BoxBlog = ({ title, description, slug, photos, admin_name, admin_profile, category }) => {
+
+    const cleanDesc = DOMPurify.sanitize(description)
+
     return (
         <>
             <div className="rounded-xl overflow-hidden h-[560px] border border-[#EBEBEB] dark:border-gray-600">
                 <div className="w-full relative">
                     <div className="h-[235px] overflow-hidden">
-                        <img src="/images/image_post.jpg" className='w-full h-[235px] overflow-hidden object-cover hover:scale-105 transition duration-300 cursor-pointer' alt="Photo Post ...." />
+                        <img src={photos[0]} className='w-full h-[235px] overflow-hidden object-cover hover:scale-105 transition duration-300 cursor-pointer' alt="Photo Post ...." />
                     </div>
                     <span className='backGround-primary rounded-full absolute top-4 right-4 text-sm py-1 px-2.5'>الهام بخش</span>
                     <div className="active flex items-center justify-center w-14 p-0 h-14 absolute left-4 -bottom-4 z-10">
@@ -23,8 +28,8 @@ const BoxBlog = () => {
                         <p className='text-xs tracking-tighter text-secondTextColor'>01 آبان 1403</p>
                     </div>
                     <div className="mt-4">
-                        <h2 className='font-DanaMedium hover:text-redPrimaryColor cursor-pointer transition text-xl line-clamp-2 tracking-tighter text-secondColor h-[56px] dark:text-white dark:hover:text-redPrimaryColor'>۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید</h2>
-                        <p className='tracking-tighter line-clamp-3 text-secondTextColor mt-4 h-[72px]'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و…</p>
+                        <h2 className='font-DanaMedium hover:text-redPrimaryColor cursor-pointer transition text-xl line-clamp-2 tracking-tighter text-secondColor h-[56px] dark:text-white dark:hover:text-redPrimaryColor'>{title}</h2>
+                        <p className='tracking-tighter line-clamp-3 text-secondTextColor mt-4 h-[72px]' dangerouslySetInnerHTML={{ __html: cleanDesc }}></p>
                     </div>
                     <div className="mt-[30px] border-t border-[#EBEBEB] dark:border-gray-600 flex items-center justify-between">
                         <svg className='w-5 h-5 mt-5 text-secondTextColor cursor-pointer'>

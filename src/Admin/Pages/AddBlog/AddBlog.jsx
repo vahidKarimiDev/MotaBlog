@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import BoxContent from './../../Components/BoxContent/BoxContent';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import classicEditor from '@ckeditor/ckeditor5-build-classic';
-import axios from 'axios'
+import { useDispatch } from 'react-redux';
+import Blogs, { createBlogToServer } from './../../../Redux/Store/Blogs'
 
 const AddBlog = () => {
+    const dispatch = useDispatch()
+
     const [photos, setPhotos] = useState([]);
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -26,14 +29,12 @@ const AddBlog = () => {
         formData.append('admin_id', 1);
 
         photos.forEach((photo, index) => {
-            formData.append(`photos[${index}]`, photo)
-        })
+            formData.append(`photos[]`, photo)
+        });
 
-        const res = await axios.post('http://localhost:8000/api/v1/blog', formData, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        })
+        console.log(formData);
+
+        dispatch(createBlogToServer(formData))
     }
 
     return (
@@ -53,6 +54,15 @@ const AddBlog = () => {
                     </div>
                 </div>
 
+                <div className="flex items-start justify-start gap-4">
+
+                    <div className="w-full flex items-start flex-col gap-1">
+                        <label className='font-DanaBold text-xl' htmlFor="title">چکیده توضیحات</label>
+                        <textarea id='title' className='input rounded-lg py-2.5 px-2' value={slug} onChange={(e) => setSlug(e.target.value)} placeholder='چکیده توضیحات را وارد کنید ...'></textarea>
+                        {/* <input type="text" id='title' className='input rounded-lg py-2.5 px-2' value={slug} onChange={(e) => setSlug(e.target.value)} placeholder='چکیده توضیحات را وارد کنید ...' /> */}
+                    </div>
+                </div>
+
                 <div className="">
                     <CKEditor
                         editor={classicEditor}
@@ -66,12 +76,7 @@ const AddBlog = () => {
                     />
                 </div>
 
-                <div className="flex flex-col items-start gap-4 mt-7">
-                    <label className='font-DanaBold text-xl' htmlFor="title"> دسته بندی </label>
-                    <select className='p-2 rounded-lg'>
-                        <option value="-1">دسته بندی را انتخاب کنید</option>
-                    </select>
-                </div>
+
 
                 <div className="my-7">
                     <label className='font-DanaBold text-xl' htmlFor="title">تصاویر</label>
@@ -91,7 +96,12 @@ const AddBlog = () => {
                         </label>
                     </div>
                 </div>
-
+                <div className="flex flex-col items-start gap-1 mb-7">
+                    <label className='font-DanaBold text-xl' htmlFor="title"> دسته بندی </label>
+                    <select className='p-2.5 rounded-lg'>
+                        <option value="-1">دسته بندی را انتخاب کنید</option>
+                    </select>
+                </div>
                 <div className="flex items-center justify-end gap-4">
                     <button className='bg-redPrimaryColor px-4 py-2 rounded-md font-DanaBold text-white text-lg hover:bg-redPrimaryColor/90 transition'>پیش نویس</button>
                     <button onClick={submitForm} className='bg-green-500 px-4 py-2 rounded-md font-DanaBold text-white text-lg hover:bg-green-600 transition'>ثبت</button>
