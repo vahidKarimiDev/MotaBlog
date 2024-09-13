@@ -6,9 +6,9 @@ const ListBlog = ({ data }) => {
         <>
             <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
-                    data?.slice(0,6).map(blog => (
-                <BoxBlog {...blog} />
-                ))
+                    data?.slice(0, 6).map(blog => (
+                        <BoxBlog {...blog} />
+                    ))
                 }
             </div>
             <div className="w-full  flex items-center justify-center my-12">

@@ -21,6 +21,9 @@ const createBlogToServer = createAsyncThunk('blog/createBlogToServer', async (bo
         method: "POST",
         body: body
     })
+    const data = await res.json()
+    console.log(data);
+
 
     if (res.status === 201) {
         swal({
@@ -28,7 +31,18 @@ const createBlogToServer = createAsyncThunk('blog/createBlogToServer', async (bo
             icon: "success",
         })
 
-        return body
+        const data = {
+            title: body.get("title"),
+            description: body.get("description"),
+            miniDesc: body.get("miniDesc"),
+            category_id: body.get("category_id"),
+            slug: body.get("slug"),
+            admin_id: body.get("admin_id"),
+            "photos": body.get("photos")
+        }
+
+
+        return data
     }
 })
 

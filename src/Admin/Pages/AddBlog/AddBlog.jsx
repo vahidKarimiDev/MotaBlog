@@ -3,7 +3,7 @@ import BoxContent from './../../Components/BoxContent/BoxContent';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import classicEditor from '@ckeditor/ckeditor5-build-classic';
 import { useDispatch } from 'react-redux';
-import Blogs, { createBlogToServer } from './../../../Redux/Store/Blogs'
+import { createBlogToServer } from './../../../Redux/Store/Blogs'
 
 const AddBlog = () => {
     const dispatch = useDispatch()
@@ -30,7 +30,7 @@ const AddBlog = () => {
         formData.append('slug', slug);
         formData.append('admin_id', 1);
 
-        photos.forEach((photo, index) => {
+        photos.forEach((photo) => {
             formData.append(`photos[]`, photo)
         });
 
@@ -60,7 +60,7 @@ const AddBlog = () => {
 
                     <div className="w-full flex items-start flex-col gap-1">
                         <label className='font-DanaBold text-xl' htmlFor="mini">چکیده توضیحات</label>
-                        <textarea id='mini' className='input rounded-lg py-2.5 px-2' value={slug} onChange={(e) => setMiniDesc(e.target.value)} placeholder='چکیده توضیحات را وارد کنید ...'></textarea>
+                        <textarea id='mini' className='input rounded-lg py-2.5 px-2' onChange={(e) => setMiniDesc(e.target.value)} placeholder='چکیده توضیحات را وارد کنید ...'  >{slug}</textarea>
                     </div>
                 </div>
 

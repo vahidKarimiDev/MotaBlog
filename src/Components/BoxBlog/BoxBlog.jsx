@@ -1,16 +1,12 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from "swiper/react"
-import DOMPurify from 'dompurify';
 import { Link } from 'react-router-dom';
 
 const BoxBlog = ({ title, miniDesc, slug, photos, admin_userName, admin_profile, category }) => {
-    const cleanDesc = DOMPurify.sanitize(miniDesc)
-
     return (
         <>
             <div className="rounded-xl overflow-hidden h-[560px] border border-[#EBEBEB] dark:border-gray-600">
                 <div className="w-full relative">
-                    <Link to={`/blog/${slug}`}>
+                    <Link to={`/blog/${slug.split(' ').join('-')}`}>
                         <div className="h-[235px] overflow-hidden">
                             <img src={photos[0]} className='w-full h-[235px] overflow-hidden object-cover hover:scale-105 transition duration-300 cursor-pointer' alt="Photo Post ...." />
                         </div>
@@ -30,10 +26,10 @@ const BoxBlog = ({ title, miniDesc, slug, photos, admin_userName, admin_profile,
                         <p className='text-xs tracking-tighter text-secondTextColor'>01 آبان 1403</p>
                     </div>
                     <div className="mt-4">
-                        <Link to={`/blog/${slug}`}>
+                        <Link to={`/blog/${slug.split(' ').join('-')}`}>
                             <h2 className='font-DanaMedium hover:text-redPrimaryColor cursor-pointer transition text-xl line-clamp-2 tracking-tighter text-secondColor h-[56px] dark:text-white dark:hover:text-redPrimaryColor'>{title}</h2>
                         </Link>
-                        <p className='tracking-tighter line-clamp-3 text-secondTextColor mt-4 h-[72px]' dangerouslySetInnerHTML={{ __html: cleanDesc }}></p>
+                        <p className='tracking-tighter line-clamp-3 text-secondTextColor mt-4 h-[72px]'>{miniDesc}</p>
                     </div>
                     <div className="mt-[30px] border-t border-[#EBEBEB] dark:border-gray-600 flex items-center justify-between">
                         <svg className='w-5 h-5 mt-5 text-secondTextColor cursor-pointer'>
