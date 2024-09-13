@@ -10,6 +10,7 @@ const AddBlog = () => {
 
     const [photos, setPhotos] = useState([]);
     const [title, setTitle] = useState('');
+    const [miniDesc, setMiniDesc] = useState("")
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('');
     const [slug, setSlug] = useState('');
@@ -24,6 +25,7 @@ const AddBlog = () => {
 
         formData.append('title', title);
         formData.append('description', content);
+        formData.append('miniDesc', miniDesc);
         formData.append('category_id', 1);
         formData.append('slug', slug);
         formData.append('admin_id', 1);
@@ -57,9 +59,8 @@ const AddBlog = () => {
                 <div className="flex items-start justify-start gap-4">
 
                     <div className="w-full flex items-start flex-col gap-1">
-                        <label className='font-DanaBold text-xl' htmlFor="title">چکیده توضیحات</label>
-                        <textarea id='title' className='input rounded-lg py-2.5 px-2' value={slug} onChange={(e) => setSlug(e.target.value)} placeholder='چکیده توضیحات را وارد کنید ...'></textarea>
-                        {/* <input type="text" id='title' className='input rounded-lg py-2.5 px-2' value={slug} onChange={(e) => setSlug(e.target.value)} placeholder='چکیده توضیحات را وارد کنید ...' /> */}
+                        <label className='font-DanaBold text-xl' htmlFor="mini">چکیده توضیحات</label>
+                        <textarea id='mini' className='input rounded-lg py-2.5 px-2' value={slug} onChange={(e) => setMiniDesc(e.target.value)} placeholder='چکیده توضیحات را وارد کنید ...'></textarea>
                     </div>
                 </div>
 
