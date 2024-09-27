@@ -1,0 +1,14 @@
+.noReset_css > h1,
+.noReset_css > h2,
+.noReset_css > h3,
+.noReset_css > h4,
+.noReset_css > h5,
+.noReset_css > h6,
+.noReset_css > p,
+.noReset_css > li,
+.noReset_css > ul,
+.noReset_css > ol,
+.noReset_css > b,
+.noReset_css > i {
+  all: revert;
+}

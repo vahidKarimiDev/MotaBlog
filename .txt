@@ -1,0 +1,15 @@
+url:  https://gallant-ardinghelli-zg56gdco3.liara.run/api/sendSms
+mthod: POST
+headers : {
+    "Content-Type" : "application/json"
+}
+body : { mobile : UserMobile, code : otpCode }
+
+status 201: send sms Success Fully :)
+status 422: mobile or code is not valid;
+status 500: Unknown error
+
+mobile: 09150300174 ✅
+mobile: 9150300174 ❌
+
+code: length 4 ✅
