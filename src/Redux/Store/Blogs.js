@@ -1,17 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { retry } from "@reduxjs/toolkit/query";
 const BASE_API = import.meta.env.VITE_BASE_API;
-import axios from "axios";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { effectTarget } from "swiper/effect-utils";
 
 const getBlogFromServer = createAsyncThunk("blog/getBlogFromServer", async () => {
     const res = await fetch(`${BASE_API}/blog`);
-
-    if (res.status !== 200) {
-        swal({
-            title: "مشکلی پیش امده دوباره امتحان کنید :(",
-            icon: "error",
-        })
-    }
     const data = await res.json();
     return data
 });
@@ -22,11 +17,9 @@ const createBlogToServer = createAsyncThunk('blog/createBlogToServer', async (bo
         body: body
     })
     const data = await res.json()
-    console.log(data);
-
 
     if (res.status === 201) {
-        swal({
+        withReactContent(Swal).fire({
             title: "پست جدید با موفقیت ساخته شده :)",
             icon: "success",
         })
@@ -46,6 +39,26 @@ const createBlogToServer = createAsyncThunk('blog/createBlogToServer', async (bo
     }
 })
 
+const findBlogWithSlug = createAsyncThunk('blog/findBlogWithSlug', async (slug) => {
+    const res = await fetch(`${BASE_API}/blog/${slug}`);
+    if (res.status === 200) {
+        const data = await res.json();
+        return data;
+    }
+})
+
+const deleteBlogFromServer = createAsyncThunk('blog/deleteBlogFromServer', async id => {
+    const res = await fetch(`${BASE_API}/blog/${id}`, {
+        method: "DELETE",
+    })
+    if (res.status === 204) {
+        withReactContent(Swal).fire({
+            title: "با موفقیت حذف شد",
+            icon: "success",
+        })
+        return id
+    }
+})
 
 const slice = createSlice({
     name: "blog",
@@ -57,7 +70,12 @@ const slice = createSlice({
         builder.addCase(createBlogToServer.fulfilled, (state, action) => {
             state.push(action.payload)
         })
+        builder.addCase(deleteBlogFromServer.fulfilled, (state, action) => {
+            state.filter(blog => blog.id !== action.payload)
+        })
     }
 })
 export default slice.reducer
-export { getBlogFromServer, createBlogToServer }
+export { getBlogFromServer, createBlogToServer, findBlogWithSlug, deleteBlogFromServer }
+
+/* HTML: <div class="loader"></div> */

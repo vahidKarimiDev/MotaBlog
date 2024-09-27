@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react';
 import BoxContent from './../../Components/BoxContent/BoxContent';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import classicEditor from '@ckeditor/ckeditor5-build-classic';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createBlogToServer } from './../../../Redux/Store/Blogs'
+import { getCategoryFromServer } from '../../../Redux/Store/Category';
+import './AddBlog.css';
+import { resizeImage } from '../../../../utils/resizeImage';
 
 const AddBlog = () => {
+    const BASE_API = import.meta.env.VITE_BASE_API;
+
+    const categories = useSelector(state => state.category)
     const dispatch = useDispatch()
 
     const [photos, setPhotos] = useState([]);
@@ -15,9 +21,46 @@ const AddBlog = () => {
     const [category, setCategory] = useState('');
     const [slug, setSlug] = useState('');
 
-    const photosHandler = (e) => {
+    const photosHandler = async (e) => {
         const selectedFiles = Array.from(e.target.files);
-        setPhotos(preve => [...preve, ...selectedFiles]);
+
+        try {
+            const resizedImage = await Promise.all(
+                selectedFiles.map(photo => resizeImage(photo, 740, 470, 'webp', 1))
+            )
+            setPhotos(preve => [...preve, ...resizedImage]);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        dispatch(getCategoryFromServer())
+    }, [])
+
+    function uploadAdaptor(loader) {
+        return {
+            upload: () => {
+                return new Promise((resolve, reject) => {
+                    const body = new FormData()
+                    loader.file.then(file => {
+                        body.append("image", file);
+                        fetch(`${BASE_API}/upload`, {
+                            method: "POST",
+                            body: body
+                        }).then(res => res.json()).then(data => {
+                            resolve({ default: data?.url })
+                        }).catch(err => reject(err))
+                    })
+                })
+            }
+        }
+    }
+
+    function loaderPlugins(editor) {
+        editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+            return uploadAdaptor(loader)
+        }
     }
 
     const submitForm = async () => {
@@ -26,17 +69,21 @@ const AddBlog = () => {
         formData.append('title', title);
         formData.append('description', content);
         formData.append('miniDesc', miniDesc);
-        formData.append('category_id', 1);
-        formData.append('slug', slug);
+        formData.append('category_id', category);
+        formData.append('slug', slug.split(" ").join('-'));
         formData.append('admin_id', 1);
 
         photos.forEach((photo) => {
             formData.append(`photos[]`, photo)
         });
 
-        console.log(formData);
-
         dispatch(createBlogToServer(formData))
+        // setPhotos([])
+        // setTitle("")
+        // setMiniDesc("")
+        // setContent("")
+        // setCategory("")
+        // setSlug("")
     }
 
     return (
@@ -64,20 +111,30 @@ const AddBlog = () => {
                     </div>
                 </div>
 
-                <div className="">
+                <div className="prose w-full max-w-none">
                     <CKEditor
                         editor={classicEditor}
                         config={{
                             language: "fa",
+                            heading: {
+                                options: [
+                                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+                                    { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+                                    { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
+                                    { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' },
+                                ]
+                            },
+                            extraPlugins: [loaderPlugins]
                         }}
-                        onChange={(evetn, editor) => {
+                        onChange={(event, editor) => {
                             const data = editor.getData();
                             setContent(data);
                         }}
                     />
                 </div>
-
-
 
                 <div className="my-7">
                     <label className='font-DanaBold text-xl' htmlFor="title">تصاویر</label>
@@ -97,18 +154,23 @@ const AddBlog = () => {
                         </label>
                     </div>
                 </div>
+
                 <div className="flex flex-col items-start gap-1 mb-7">
                     <label className='font-DanaBold text-xl' htmlFor="title"> دسته بندی </label>
-                    <select className='p-2.5 rounded-lg'>
-                        <option value="-1">دسته بندی را انتخاب کنید</option>
+                    <select onChange={e => setCategory(e.target.value)} className='p-2.5 rounded-lg'>
+                        <option value="-1" disabled>دسته بندی را انتخاب کنید</option>
+                        {
+                            categories?.map(category => (
+                                <option value={category.id}>{category.title}</option>
+                            ))
+                        }
                     </select>
                 </div>
+
                 <div className="flex items-center justify-end gap-4">
                     <button className='bg-redPrimaryColor px-4 py-2 rounded-md font-DanaBold text-white text-lg hover:bg-redPrimaryColor/90 transition'>پیش نویس</button>
                     <button onClick={submitForm} className='bg-green-500 px-4 py-2 rounded-md font-DanaBold text-white text-lg hover:bg-green-600 transition'>ثبت</button>
                 </div>
-
-
             </BoxContent>
         </>
     )

@@ -227,4 +227,14 @@
   ::-webkit-scrollbar {
     display: none;
   }
+
+  .swal-footer {
+    text-align: center;
+  }
+  .description > p {
+    @apply text-secondTextColor;
+  }
+  .description > p > strong {
+    @apply text-secondColor;
+  }
 }

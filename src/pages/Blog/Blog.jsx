@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore from 'swiper';
 import { Autoplay } from "swiper/modules"
 import "swiper/css"
 import NextAndPreveBtn from './Components/NextAndPreveBtn/NextAndPreveBtn';
 import NextAndPrevBtnEvents from './Components/NextAndPrevBtnEvents/NextAndPrevBtnEvents';
+import { useDispatch } from 'react-redux';
+import { findBlogWithSlug } from '../../Redux/Store/Blogs';
+import { useParams } from 'react-router-dom';
 
 const Blog = () => {
+    const dispatch = useDispatch();
+
+    const [blog, setBlog] = useState([]);
+    const { slug } = useParams()
+
     SwiperCore.use([Autoplay]);
+
+    useEffect(() => {
+        (
+            async () => {
+                const res = await dispatch(findBlogWithSlug(slug));
+                setBlog(res.payload)
+            }
+        )()
+    }, [])
+    console.log(blog);
 
     return (
         <>
@@ -15,18 +33,18 @@ const Blog = () => {
                 <p className='flex items-center justify-start gap-2 text-secondTextColor text-xs sm:text-sm tracking-tight pb-3'>
                     مــوتــا
                     <span>/</span>
-                    پرطرفدار
+                    {blog.category}
                     <span>/</span>
-                    ۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید
+                    {blog.title?.split('-').join(" ")}
                 </p>
                 <div className="flex flex-col lg:flex-row items-start justify-between gap-6">
                     <div className="w-full lg:w-[65%] rounded-xl">
-                        <h1 className='font-MorabbaBold text-2xl sm:text-3xl font-bold text-secondColor dark:text-white '>۶۰ کاری که باید فوراً در مورد ساختمان انجام دهید</h1>
+                        <h1 className='font-MorabbaBold text-2xl sm:text-3xl font-bold text-secondColor dark:text-white '>{blog.title?.split('-').join(" ")}</h1>
                         <div className="flex items-center justify-start gap-3 sm:gap-4 mt-6 ">
                             <img src="/images/avatar.png" className='w-8 h-8 object-cover rounded-full' alt="Authre Blog Image ..." />
                             <p className='text-secondTextColor text-sm  tracking-tighter cursor-pointer hover:text-redPrimaryColor transition'>وحید کریمی</p>
                             <span className='block w-[3px] h-[3px] bg-redPrimaryColor rounded-full'></span>
-                            <p className='text-secondTextColor text-sm  tracking-tighter cursor-pointer hover:text-redPrimaryColor transition'>پرطرفدار</p>
+                            <p className='text-secondTextColor text-sm  tracking-tighter cursor-pointer hover:text-redPrimaryColor transition'>{blog.category}</p>
                             <span className='block w-[3px] h-[3px] bg-redPrimaryColor rounded-full'></span>
                             <p className='text-secondTextColor text-sm  tracking-tighter'>01 آبان 1403</p>
                             <span className='block w-[3px] h-[3px] bg-redPrimaryColor rounded-full'></span>
@@ -48,21 +66,18 @@ const Blog = () => {
                             }}
                             className='mt-[30px] relative rounded-xl'
                         >
-                            <SwiperSlide>
-                                <img src="/images/img-1.jpg" className='w-full h-[460px] object-cover rounded-xl' alt="Photo Blogs ..." />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <img src="/images/img-2.jpg" className='w-full h-[460px] object-cover rounded-xl' alt="Photo Blogs ..." />
-                            </SwiperSlide>
+                            {
+                                blog.photos?.map((photo, index) => (
+                                    <SwiperSlide key={index}>
+                                        <img src={photo} className='w-full h-[460px] object-cover rounded-xl' alt="Photo Blogs ..." />
+                                    </SwiperSlide>
+                                ))
+                            }
+
                             <NextAndPreveBtn />
                         </Swiper>
-                        <div className="text-secondTextColor dark:text-white/90 flex flex-col gap-4 mt-8 font-medium border-b border-[#EBEBEB] dark:border-gray-600 pb-10 dark:border-gray-600">
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی <span className='text-redPrimaryColor'>تکنولوژی</span> مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                            <img src="/images/img-3.jpg" className='w-full h-[460px] rounded-xl object-cover' alt="Photo Blog ..." />
-                            <h2 className='text-2xl font-DanaBold text-secondColor dark:text-white mt-4'>سوال رقت انگیزی روی گونه اش نشست</h2>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.</p>
+                        <div className="description text-secondColor dark:text-white/90 flex flex-col gap-4 mt-8 font-medium border-b border-[#EBEBEB] dark:border-gray-600 pb-10" dangerouslySetInnerHTML={{ __html: blog.description }}>
+
                         </div>
                         <div className="mt-8 flex items-start justify-start gap-4">
                             <p className='tracking-tight text-secondTextColor dark:text-white pb-4'>اشتراک گذاری نوشته در:</p>

@@ -11,7 +11,7 @@ import AddCategory from "./Admin/Pages/AddCategory/AddCategory";
 const routers = [
     { path: '/', element: <Home /> },
     { path: '/contact', element: <Contcat /> },
-    { path: '/blog/:title', element: <Blog /> },
+    { path: '/blog/:slug', element: <Blog /> },
 
 
     // Admin
