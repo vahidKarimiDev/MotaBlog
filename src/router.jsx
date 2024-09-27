@@ -7,6 +7,7 @@ import HomeAdmin from './Admin/Pages/Home/Home'
 import AddBlog from "./Admin/Pages/AddBlog/AddBlog";
 import ShowBLog from "./Admin/Pages/ShowBlog/ShowBLog";
 import AddCategory from "./Admin/Pages/AddCategory/AddCategory";
+import Contact from "./Admin/Pages/Contact/Contact";
 
 const routers = [
     { path: '/', element: <Home /> },
@@ -21,6 +22,7 @@ const routers = [
             { path: "add-blog", element: <AddBlog /> },
             { path: "showblog", element: <ShowBLog /> },
             { path: "category", element: <AddCategory /> },
+            { path: "contact", element: <Contact /> },
         ]
     },
     { path: "*", element: <p>404</p> }

@@ -1,6 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { copyWithStructuralSharing } from '@reduxjs/toolkit/query';
-import { act } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 const BASE_API = import.meta.env.VITE_BASE_API;
@@ -75,3 +73,4 @@ const slice = createSlice({
 })
 
 export default slice.reducer
+export { getContactFromServe, createContactToServer, deleteContactFromServer }
