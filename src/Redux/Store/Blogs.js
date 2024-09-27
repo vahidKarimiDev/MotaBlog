@@ -1,9 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { retry } from "@reduxjs/toolkit/query";
 const BASE_API = import.meta.env.VITE_BASE_API;
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import { effectTarget } from "swiper/effect-utils";
 
 const getBlogFromServer = createAsyncThunk("blog/getBlogFromServer", async () => {
     const res = await fetch(`${BASE_API}/blog`);
