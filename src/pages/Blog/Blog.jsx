@@ -7,7 +7,7 @@ import NextAndPreveBtn from './Components/NextAndPreveBtn/NextAndPreveBtn';
 import NextAndPrevBtnEvents from './Components/NextAndPrevBtnEvents/NextAndPrevBtnEvents';
 import { useDispatch } from 'react-redux';
 import { findBlogWithSlug } from '../../Redux/Store/Blogs';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Blog = () => {
     const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Blog = () => {
                 setBlog(res.payload)
             }
         )()
-    }, [])
+    }, [slug])
     console.log(blog);
 
     return (
@@ -147,7 +147,7 @@ const Blog = () => {
                     </div>
                     <div className="w-full lg:w-[35%] flex flex-col gap-10">
                         <div className="border border-[#EBEBEB] dark:border-gray-600 rounded-xl py-[35px] px-[30px]">
-                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor dark:text-white'>نوشته های محبوب</p>
+                            <p className='font-DanaMedium text-center pb-3 text-xl text-secondColor dark:text-white'>جدید ترین نوشته ها</p>
                             <div className="flex items-center justify-center w-full">
                                 <svg width="33" height="6" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
@@ -160,36 +160,22 @@ const Blog = () => {
                                 </svg>
                             </div>
                             <div className="mt-8 flex flex-col items-start justify-start child:py-4">
-                                <div className="customBorder relative flex items-center justify-start gap-3 w-full">
-                                    <div className="relative">
-                                        <img src="/images/img-4.jpg" className='w-[60px] h-[60px] object-cover rounded-full' alt="Blog Photo ..." />
-                                        <span className='absolute -top-2 right-0 border-2 shadow-inner shadow-red-600 border-white rounded-full w-6 h-6 bg-redPrimaryColor flex items-center justify-center text-sm text-white'>1</span>
-                                    </div>
-                                    <div className="">
-                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer dark:text-white '>۳ راه آسان برای سریعتر کردن آیفون</h4>
-                                        <span className='block text-secondTextColor text-sm tracking-tighter mt-1'>28 مرداد 1401</span>
-                                    </div>
-                                </div>
-                                <div className="customBorder relative flex items-center justify-start gap-3 w-full">
-                                    <div className="relative">
-                                        <img src="/images/img-4.jpg" className='w-[60px] h-[60px] object-cover rounded-full' alt="Blog Photo ..." />
-                                        <span className='absolute -top-2 right-0 border-2 shadow-inner shadow-red-600 border-white rounded-full w-6 h-6 bg-redPrimaryColor flex items-center justify-center text-sm text-white'>1</span>
-                                    </div>
-                                    <div className="">
-                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer dark:text-white'>۳ راه آسان برای سریعتر کردن آیفون</h4>
-                                        <span className='block text-secondTextColor text-sm tracking-tighter mt-1'>28 مرداد 1401</span>
-                                    </div>
-                                </div>
-                                <div className="customBorder relative flex items-center justify-start gap-3 w-full">
-                                    <div className="relative">
-                                        <img src="/images/img-4.jpg" className='w-[60px] h-[60px] object-cover rounded-full' alt="Blog Photo ..." />
-                                        <span className='absolute -top-2 right-0 border-2 shadow-inner shadow-red-600 border-white rounded-full w-6 h-6 bg-redPrimaryColor flex items-center justify-center text-sm text-white'>1</span>
-                                    </div>
-                                    <div className="">
-                                        <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer dark:text-white'>۳ راه آسان برای سریعتر کردن آیفون</h4>
-                                        <span className='block text-secondTextColor text-sm tracking-tighter mt-1'>28 مرداد 1401</span>
-                                    </div>
-                                </div>
+                                {
+                                    blog.last_post?.map((item, index) => (
+                                        <div className="customBorder relative flex items-center justify-start gap-3 w-full">
+                                            <div className="relative w-[60px] h-[60px]">
+                                                <img src={item.photo} className='w-[60px] h-[60px] object-cover rounded-full ' alt="Blog Photo ..." />
+                                                <span className='absolute -top-2 right-0 border-2 shadow-inner shadow-red-600 border-white rounded-full w-6 h-6 bg-redPrimaryColor flex items-center justify-center text-sm text-white'>{index + 1}</span>
+                                            </div>
+                                            <div className="">
+                                                <Link to={`/blog/${item.slug.split(' ').join('-')}`}>
+                                                    <h4 className='text-secondColor text-base tracking-tighter font-DanaMedium hover:text-redPrimaryColor transition cursor-pointer dark:text-white line-clamp-1'>{item.title}</h4>
+                                                </Link>
+                                                <span className='block text-secondTextColor text-sm tracking-tighter mt-1'>28 مرداد 1401</span>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
                             </div>
                         </div>
 

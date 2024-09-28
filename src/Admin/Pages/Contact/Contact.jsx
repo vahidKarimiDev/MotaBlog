@@ -59,7 +59,6 @@ const Contact = () => {
                                     </tr>
                                 )) : <><p className='flex items-center justify-center'>هنوز کاربر پیام نداده</p></>
                             }
-
                         </tbody>
                     </table>
                 </div>

@@ -1,6 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { createContactToServer } from '../../../../Redux/Store/Contact'
 
 const SendMessage = () => {
+    const dispatch = useDispatch()
+
+    const [userName, setUserName] = useState('')
+    const [email, setEmail] = useState('')
+    const [subject, setSubject] = useState('')
+    const [text, setText] = useState('')
+
+    const sendContactUser = (e) => {
+        e.preventDefault();
+
+        const newContactInfo = {
+            userName,
+            email,
+            subject,
+            text,
+        }
+        dispatch(createContactToServer(newContactInfo));
+        setUserName("")
+        setEmail("")
+        setSubject("")
+        setText("")
+    }
+
     return (
         <>
             <div className="my-16">
@@ -17,16 +42,16 @@ const SendMessage = () => {
 
                 <div className="mt-4">
                     <div className="flex flex-col sm:flex-row items-center justify-between sm:gap-4">
-                        <input type="text" className='input' placeholder='نام و نام خوانوادگی' />
-                        <input type="text" className='input' placeholder='ایمیل' />
+                        <input type="text" value={userName} onChange={e => setUserName(e.target.value)} className='input' placeholder='نام و نام خوانوادگی' />
+                        <input type="text" value={email} onChange={e => setEmail(e.target.value)} className='input' placeholder='ایمیل' />
                     </div>
                     <div className="">
-                        <input type="text" className='input' placeholder='موضوع' />
-                        <textarea className='input rounded-3xl' placeholder='پیام ...' cols={10} rows={4} ></textarea>
+                        <input type="text" value={subject} onChange={e => setSubject(e.target.value)} className='input' placeholder='موضوع' />
+                        <textarea value={text} onChange={e => setText(e.target.value)} className='input rounded-3xl' placeholder='پیام ...' cols={10} rows={4} ></textarea>
                     </div>
                 </div>
 
-                <button className='backGround-primary p-2 px-6 rounded-3xl'>ارسال پیام</button>
+                <button className='backGround-primary p-2 px-6 rounded-3xl' onClick={sendContactUser}>ارسال پیام</button>
             </div>
         </>
     )
