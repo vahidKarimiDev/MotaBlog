@@ -1,6 +1,14 @@
 import React from 'react'
 
 const Footer = () => {
+
+    const handlerFitToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+
     return (
         <>
             <footer className='mt-[50px]'>
@@ -34,7 +42,7 @@ const Footer = () => {
                                 </svg>
                             </a>
                         </div>
-                        <button className='flex items-center gap-2 px-6 py-1.5 tracking-tighter border border-[#EBEBEB] dark:border-gray-600 rounded-full text-secondTextColor hover:text-redPrimaryColor dark:hover:border-redPrimaryColor hover:border-redPrimaryColor transition'>
+                        <button onClick={handlerFitToTop} className='flex items-center gap-2 px-6 py-1.5 tracking-tighter border border-[#EBEBEB] dark:border-gray-600 rounded-full text-secondTextColor hover:text-redPrimaryColor dark:hover:border-redPrimaryColor hover:border-redPrimaryColor transition'>
                             <svg className='w-5 h-5 '>
                                 <use xlinkHref='#arrow-up'></use>
                             </svg>

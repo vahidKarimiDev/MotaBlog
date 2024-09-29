@@ -72,18 +72,19 @@ const AddBlog = () => {
         formData.append('category_id', category);
         formData.append('slug', slug.split(" ").join('-'));
         formData.append('admin_id', 1);
+        formData.append('status', 1);
 
         photos.forEach((photo) => {
             formData.append(`photos[]`, photo)
         });
 
         dispatch(createBlogToServer(formData))
-        // setPhotos([])
-        // setTitle("")
-        // setMiniDesc("")
-        // setContent("")
-        // setCategory("")
-        // setSlug("")
+        setPhotos([])
+        setTitle("")
+        setMiniDesc("")
+        setContent("")
+        setCategory("")
+        setSlug("")
     }
 
     return (

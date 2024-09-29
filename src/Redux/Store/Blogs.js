@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createDraftSafeSelector, createSlice } from "@reduxjs/toolkit";
 const BASE_API = import.meta.env.VITE_BASE_API;
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-const getBlogFromServer = createAsyncThunk("blog/getBlogFromServer", async () => {
-    const res = await fetch(`${BASE_API}/blog`);
+const getBlogFromServer = createAsyncThunk("blog/getBlogFromServer", async (offset = 0) => {
+    const res = await fetch(`${BASE_API}/blog?offset=${offset}`);
     const data = await res.json();
     return data
 });
@@ -15,6 +15,8 @@ const createBlogToServer = createAsyncThunk('blog/createBlogToServer', async (bo
         body: body
     })
     const data = await res.json()
+    console.log(data);
+    
 
     if (res.status === 201) {
         withReactContent(Swal).fire({
@@ -60,20 +62,43 @@ const deleteBlogFromServer = createAsyncThunk('blog/deleteBlogFromServer', async
 
 const slice = createSlice({
     name: "blog",
-    initialState: [],
+    initialState: {
+        blogs: [],
+        offset: 0,
+        noData: false,
+        isLoader: false
+    },
+    reducers: {
+        incrementOffset: (state) => {
+            state.offset += 6
+        }
+    },
     extraReducers: (builder) => {
+        builder.addCase(getBlogFromServer.pending, state => {
+            state.isLoader = true
+        })
         builder.addCase(getBlogFromServer.fulfilled, (state, action) => {
-            return action.payload
+            if (action.payload.length === 0) {
+                state.noData = true
+            } else {
+                state.blogs.push(...action.payload);
+                state.isLoader = false
+            }
         });
         builder.addCase(createBlogToServer.fulfilled, (state, action) => {
-            state.push(action.payload)
+            state.blogs.push(action.payload)
         })
         builder.addCase(deleteBlogFromServer.fulfilled, (state, action) => {
-            state.filter(blog => blog.id !== action.payload)
+            state.blogs = state.blogs.filter(blog => blog.id !== action.payload)
+        });
+        builder.addCase(findBlogWithSlug.pending, state => {
+            state.isLoader = true
+        })
+        builder.addCase(findBlogWithSlug.fulfilled, state => {
+            state.isLoader = false
         })
     }
 })
+export const { incrementOffset } = slice.actions
 export default slice.reducer
 export { getBlogFromServer, createBlogToServer, findBlogWithSlug, deleteBlogFromServer }
-
-/* HTML: <div class="loader"></div> */

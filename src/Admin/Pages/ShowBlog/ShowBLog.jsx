@@ -5,12 +5,14 @@ import BoxBlogAdmin from '../../Components/BoxBlogAdmin/BoxBlogAdmin'
 import { getBlogFromServer } from '../../../Redux/Store/Blogs'
 
 const ShowBLog = () => {
-    const blogs = useSelector((state) => state.blog);
+    const blogs = useSelector((state) => state.blog.blogs);
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getBlogFromServer())
-    })
+        if (blogs.length === 0) {
+            dispatch(getBlogFromServer(0))
+        }
+    }, [])
 
     return (
         <>
